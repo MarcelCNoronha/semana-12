@@ -2,7 +2,7 @@
       <div class="ma-5 d-flex justify-start">
       <h2>Produtos</h2>
     </div>
-  <div class="d-flex mx-5 flex-row">
+  <v-row class="my-3">
     <CardProduto
       v-for="produto in listaProdutos" 
       :key="produto.id" 
@@ -12,7 +12,7 @@
       :preco="produto.preco" 
       :parcela="produto.parcela" 
     />
-  </div>
+  </v-row>
 </template>
   
   <script>
