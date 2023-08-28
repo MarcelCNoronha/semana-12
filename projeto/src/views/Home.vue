@@ -2,7 +2,7 @@
       <div class="ma-5 d-flex justify-start">
       <h2>Produtos</h2>
     </div>
-  <v-row class="my-3">
+  <v-row class="my-3 mx-3">
     <CardProduto
       v-for="produto in listaProdutos" 
       :key="produto.id" 
