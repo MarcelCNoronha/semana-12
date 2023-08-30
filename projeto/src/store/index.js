@@ -28,10 +28,35 @@ const store = createStore({
         ];
       }
     },
+
+  removerProdutoDoCarrinho(state, produtoParaRemover) {
+      state.produtosCarrinho = state.produtosCarrinho.filter(
+        (produto) => produto.id !== produtoParaRemover.id
+      );
+    },
+    aumentarQuantidade(state, produto) {
+      const produtoNoCarrinho = state.produtosCarrinho.find(
+        (item) => item.id === produto.id
+      );
+      if (produtoNoCarrinho) {
+        produtoNoCarrinho.quantidade += 1;
+      }
+    },
+    diminuirQuantidade(state, produto) {
+      const produtoNoCarrinho = state.produtosCarrinho.find(
+        (item) => item.id === produto.id
+      );
+      if (produtoNoCarrinho && produtoNoCarrinho.quantidade > 1) {
+        produtoNoCarrinho.quantidade -= 1;
+      }
+    },
   },
   actions: {
     adicionarProduto(context, value) {
       context.commit("adicionarProdutoAoCarrinho", value.produto);
+    },
+    removerProduto(context, value) {
+      context.commit("removerProdutoDoCarrinho", value.produto);
     },
   },
 });
