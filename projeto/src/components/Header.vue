@@ -1,25 +1,31 @@
 <template>
-    <header>
-        <RouterLink class="text-decoration-none" to="/">
-        <div class="d-flex ma-3 align-center">
-          <h2>Funko Lab</h2>
-        </div>
-      </RouterLink>
-    </header>
-  </template>
-  
-  <script>
-  import { RouterLink } from "vue-router";
-  
-  export default {
-    components: {
-      RouterLink,
-    },
-  };
-  </script>
-  
-  <style scoped>
-  router-link{
-      text-decoration: none;
-  }
-  </style>
+  <v-layout>
+    <v-app-bar color="blue">
+      <v-app-bar-title
+        ><RouterLink class="text-decoration-none white-text" to="/"> Funko Lab</RouterLink>
+      </v-app-bar-title>
+      <v-btn icon>
+        <RouterLink class="text-decoration-none white-text" to="/carrinho">
+          {{ this.$store.state.produtosCarrinho.length }}
+          <v-icon color="#FFF">mdi-cart</v-icon>
+        </RouterLink>
+      </v-btn>
+    </v-app-bar>
+  </v-layout>
+</template>
+
+<script>
+import { RouterLink } from "vue-router";
+
+export default {
+  components: {
+    RouterLink,
+  },
+};
+</script>
+
+<style scoped>
+.white-text {
+  color: white; /* Define a cor do texto como branco */
+}
+</style>
